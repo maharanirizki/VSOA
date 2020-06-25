@@ -19,10 +19,16 @@ VSOA problem has several characteristics as follows:
 ## Methodology
 This tutorial use integer programming to solve the problem using Gurobi
 
-## Example and Applications
-The example used in this tutorial will be based on the data provided by
+## Problem Setting
+The example used in this tutorial will be based on the data provided by Xia and Wu (2007) to determine which vendor to be selected given several criteria.
 
-##
+The model consists of four parts:
+* Sets and notation
+* Decision variable
+* Objective function
+* Constraints
+
+## Conclusion
 
 ## References
 Lee, C. Y., & Chien, C. F. (2014). Stochastic programming for vendor portfolio selection and order allocation under delivery uncertainty. OR spectrum, 36(3), 761-797.
