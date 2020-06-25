@@ -12,10 +12,18 @@ VSOA problem has several characteristics as follows:
 * Multiple outsourcing vendors consideration
 * Selecting fewer vendors
 * Multiple criteria and objectives for evaluation
-* Criteria including qualitative and quantitative, subjective or ibjective
+* Criteria including qualitative and quantitative, subjective or objective
 * Determining suitable order quantity as the purpose
 * High uncertainty and risk in selection procedure
 
+## Methodology
+This tutorial use integer programming to solve the problem using Gurobi
 
+## Example and Applications
+The example used in this tutorial will be based on the data provided by
+
+##
 
 ## References
+Lee, C. Y., & Chien, C. F. (2014). Stochastic programming for vendor portfolio selection and order allocation under delivery uncertainty. OR spectrum, 36(3), 761-797.
+Xia, W., & Wu, Z. (2007). Supplier selection with multiple criteria in volume discount environments. Omega, 35(5), 494-504.
