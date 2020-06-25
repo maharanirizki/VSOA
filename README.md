@@ -28,6 +28,12 @@ The model consists of four parts:
 * Objective function
 * Constraints
 
+The code for this case is:
+```
+import gurobi gurobi.py
+```
+The code is provided here. Note that to run the code you need to install [Python](https://www.python.org/downloads/), [Jupyter Notebook](https://jupyter.readthedocs.io/en/latest/install.html), and [Gurobi](https://www.gurobi.com/gurobi-and-anaconda-for-windows/). 
+
 ## Conclusion
 
 ## References
