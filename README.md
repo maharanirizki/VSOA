@@ -7,19 +7,6 @@ In supply chain management (SCM) creating a strategic partnership with suppliers
 
 Figure 1. Position of VSOA in Supply Chain (Lee et al., 2013)
 
-# Table of Contents
-- [Vendor Selection and Order Allocation (VSOA) Tutorial](#vendor-selection-and-order-allocation--vsoa--tutorial)
-    + [Problem Characteristics](#problem-characteristics)
-  * [Methodology](#methodology)
-  * [Problem Setting](#problem-setting)
-    + [Sets and notation](#sets-and-notation)
-    + [Decision variable](#decision-variable)
-    + [Objective function](#objective-function)
-    + [Constraints](#constraints)
-  * [Conclusion](#conclusion)
-  * [Important Papers](#important-papers)
-  * [References](#references)
-
 ### Problem Characteristics
 VSOA problem has several characteristics as follows:
 * Long-term strategy and planning
@@ -29,6 +16,17 @@ VSOA problem has several characteristics as follows:
 * Criteria including qualitative and quantitative, subjective or objective
 * Determining suitable order quantity as the purpose
 * High uncertainty and risk in selection procedure
+
+# Table of Contents
+  * [Methodology](#methodology)
+  * [Problem Setting](#problem-setting)
+    + [Sets and notation](#sets-and-notation)
+    + [Decision variable](#decision-variable)
+    + [Objective function](#objective-function)
+    + [Constraints](#constraints)
+  * [Conclusion](#conclusion)
+  * [Important Papers](#important-papers)
+  * [References](#references)
 
 ## Methodology
 This tutorial use integer programming to solve the problem using Gurobi
@@ -45,9 +43,11 @@ The example used in this tutorial will be based on the model provided by Xia and
 * Warranty period
 
 The buyer has a different priority for each criteria. The priority is represented by weight.
+
 ![Global weight](https://user-images.githubusercontent.com/49055090/85816417-db95d680-b79d-11ea-8a51-80cc16633aac.PNG)
 
 Each supplier has a different performance in every criteria. To determine the overall weight for each supplier, a method called Analytic Hierarchy Process (AHP) is conducted. However, this is beyond the scope of this tutorial and the overall weight is already given. For further information about AHP you can read it through [Wikipedia page](https://en.wikipedia.org/wiki/Analytic_hierarchy_process). The overall weight for each supplier is presented as follows.
+
 ![Supplier final weight](https://user-images.githubusercontent.com/49055090/85817451-98893280-b7a0-11ea-98f3-d7076ee76412.PNG)
 
 The model consists of four parts:
@@ -57,6 +57,29 @@ The model consists of four parts:
 * Constraints
 
 ### Sets and notation
+Sets and notation of this problem is written here.
+![sets](https://user-images.githubusercontent.com/49055090/85819093-1ea77800-b7a5-11ea-8d8e-a4441711acb2.PNG)
+
+There are several parameter that I want to highlight in order to understand the problem setting better.
+* __Final weight of supplier _i___ is the weight from each supplier that we get from AHP.
+* __Set of discount interval in supplier _j_ discount schedule__ related with the idea of __economies of scale__. Economies of scale indicate the idea of doing things more efficiently with increasing size. In this case, the more product that the buyer bought, the more discount that the supplier gives. The example of discount interval is given in the table below.
+
+| _r_ | Business volume (in thousand $) | Discount (%) |
+|:---:| :---:                           | :---:        |
+| 1    | 0 to under 10000 | 0 |
+| 2 | 10000 to under 20000 | 10 |
+| 3 | 20000 and over | 20 |
+
+* __Unit price of item _i_ quoted by supplier _j___ deal with the price offered by each supplier. In this tutorial, the price offered is given through the table below.
+
+| Supplier | Price ($/unit) | 
+|:---:| :---: |
+| 1 | 411 |
+| 2 | 555 | 
+| 3 | 629 |
+| 4 | 728 |
+
+* __Defective rate of item _i_ offered by supplier _j___ related with the technical level criteria for each supplier
 
 ### Decision variable
 
