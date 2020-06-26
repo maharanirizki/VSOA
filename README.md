@@ -1,10 +1,24 @@
 # Vendor Selection and Order Allocation (VSOA) Tutorial
 
+
 In supply chain management (SCM) creating a strategic partnership with suppliers/vendor plays an important role to maximize SCM performance. A VSOA happen when a company needs to choose which vendor to allocate orders for producing products. The main three objectives of VSOA are **maximizing perfomance, minimizing risk, and minimizing cost**. VSOA in supply chain located in the tactical level and strategic level. 
 
 ![Position of VSOA](https://user-images.githubusercontent.com/49055090/85646247-4b3c9080-b6ce-11ea-83e9-192e6fef70e5.PNG)
 
 Figure 1. Position of VSOA in Supply Chain (Lee et al., 2013)
+
+# Table of Contents
+- [Vendor Selection and Order Allocation (VSOA) Tutorial](#vendor-selection-and-order-allocation--vsoa--tutorial)
+    + [Problem Characteristics](#problem-characteristics)
+  * [Methodology](#methodology)
+  * [Problem Setting](#problem-setting)
+    + [Sets and notation](#sets-and-notation)
+    + [Decision variable](#decision-variable)
+    + [Objective function](#objective-function)
+    + [Constraints](#constraints)
+  * [Conclusion](#conclusion)
+  * [Important Papers](#important-papers)
+  * [References](#references)
 
 ### Problem Characteristics
 VSOA problem has several characteristics as follows:
@@ -30,16 +44,25 @@ The example used in this tutorial will be based on the model provided by Xia and
 * Repair turn-around
 * Warranty period
 
-The buyer has a different priority for each criteria as follows.
+The buyer has a different priority for each criteria. The priority is represented by weight.
+![Global weight](https://user-images.githubusercontent.com/49055090/85816417-db95d680-b79d-11ea-8a51-80cc16633aac.PNG)
 
-
-In the point view of the buyer, each supplier has a different 
+Each supplier has a different performance in every criteria. To determine the overall weight for each supplier, a method called Analytic Hierarchy Process (AHP) is conducted. However, this is beyond the scope of this tutorial and the overall weight is already given. For further information about AHP you can read it through [Wikipedia page](https://en.wikipedia.org/wiki/Analytic_hierarchy_process). The overall weight for each supplier is presented as follows.
+![Supplier final weight](https://user-images.githubusercontent.com/49055090/85817451-98893280-b7a0-11ea-98f3-d7076ee76412.PNG)
 
 The model consists of four parts:
 * Sets and notation
 * Decision variable
 * Objective function
 * Constraints
+
+### Sets and notation
+
+### Decision variable
+
+### Objective function
+
+### Constraints
 
 The code for this case is:
 ```
@@ -55,5 +78,5 @@ Lee, C. Y., & Chien, C. F. (2014). Stochastic programming for vendor portfolio s
 Xia, W., & Wu, Z. (2007). Supplier selection with multiple criteria in volume discount environments. Omega, 35(5), 494-504.
 
 ## References
-[Nick Morris, Supplier Selection](https://github.com/N-ickMorris/Supplier-Selection)
+Nick Morris, [Supplier Selection](https://github.com/N-ickMorris/Supplier-Selection)
 
