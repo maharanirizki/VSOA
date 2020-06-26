@@ -58,9 +58,10 @@ The model consists of four parts:
 
 ### Sets and notation
 Sets and notation of this problem is written here.
+
 ![sets](https://user-images.githubusercontent.com/49055090/85819093-1ea77800-b7a5-11ea-8d8e-a4441711acb2.PNG)
 
-There are several parameter that I want to highlight in order to understand the problem setting better.
+Note that in this tutorial there is only 1 item. Therefore, the index _i_ is always 1 in this problem. There are several parameter that I want to highlight in order to understand the problem setting better.
 * __Final weight of supplier _i___ is the weight from each supplier that we get from AHP.
 * __Set of discount interval in supplier _j_ discount schedule__ related with the idea of __economies of scale__. Economies of scale indicate the idea of doing things more efficiently with increasing size. In this case, the more product that the buyer bought, the more discount that the supplier gives. The example of discount interval is given in the table below.
 
@@ -79,7 +80,25 @@ There are several parameter that I want to highlight in order to understand the 
 | 3 | 629 |
 | 4 | 728 |
 
-* __Defective rate of item _i_ offered by supplier _j___ related with the technical level criteria for each supplier
+* __Defective rate of item _i_ offered by supplier _j___ related with the technical level criteria for each supplier.
+| Supplier | Defective rate | 
+|:---:| :---: |
+| 1 | 0.08 |
+| 2 | 0.04 | 
+| 3 | 0.03 |
+| 4 | 0.01 |
+
+* __The buyer's minimum acceptable defective rate of item _i___ is the parameter about the threshold of the buyer to accept defective product. This parameter is related to quality.
+
+* __On-time delivery rate of item _i_ offered by supplier _j___ related with the on-time delivery criteria for each supplier. The higher the number, the faster the delivery of the goods.
+| Supplier | On-time delivery rate | 
+|:---:| :---: |
+| 1 | 0.83 |
+| 2 | 0.83 | 
+| 3 | 0.95 |
+| 4 | 0.86 |
+
+* Similar with the previous parameter, the buyer also have a threshold to patiently wait for the goods to be delivered. This parameter is __the buyer's minimum acceptable on-time delivery rate of item _i___.
 
 ### Decision variable
 
