@@ -56,6 +56,8 @@ The model consists of four parts:
 * Objective function
 * Constraints
 
+The model is written using Python language, solved using Gurobi solver and run in the Jupyter Notebook environment. Note that to run the code you need to install [Python](https://www.python.org/downloads/), [Jupyter Notebook](https://jupyter.readthedocs.io/en/latest/install.html), and [Gurobi](https://www.gurobi.com/gurobi-and-anaconda-for-windows/). 
+
 ### Sets and notation
 Sets and notation of this problem is written here.
 
@@ -81,6 +83,7 @@ Note that in this tutorial there is only 1 item. Therefore, the index _i_ is alw
 | 4 | 728 |
 
 * __Defective rate of item _i_ offered by supplier _j___ related with the technical level criteria for each supplier.
+
 | Supplier | Defective rate | 
 |:---:| :---: |
 | 1 | 0.08 |
@@ -91,6 +94,7 @@ Note that in this tutorial there is only 1 item. Therefore, the index _i_ is alw
 * __The buyer's minimum acceptable defective rate of item _i___ is the parameter about the threshold of the buyer to accept defective product. This parameter is related to quality.
 
 * __On-time delivery rate of item _i_ offered by supplier _j___ related with the on-time delivery criteria for each supplier. The higher the number, the faster the delivery of the goods.
+
 | Supplier | On-time delivery rate | 
 |:---:| :---: |
 | 1 | 0.83 |
@@ -101,23 +105,50 @@ Note that in this tutorial there is only 1 item. Therefore, the index _i_ is alw
 * Similar with the previous parameter, the buyer also have a threshold to patiently wait for the goods to be delivered. This parameter is __the buyer's minimum acceptable on-time delivery rate of item _i___.
 
 ### Decision variable
+The decision variable for this problem is written here. 
+
+![Decision variable](https://user-images.githubusercontent.com/49055090/85825509-f9bb0100-b7b4-11ea-8d13-76990fb3b23e.PNG)
+
+There are two continuous variables; _Xij_ to indicate the number of goods and _Vij_ to represent the business volume in order to determine the discount interval. There is also one binary variable _yjr_ to indicate in which discount interval that the buyer bought the goods.
 
 ### Objective function
+This problem has four objective.
+
+1. Since in this problem the performance of supplier is represented by weight, therefore the objective is to __maximize the total weighted quantity of purchasing__.
+
+![obj 1](https://user-images.githubusercontent.com/49055090/85825895-fb38f900-b7b5-11ea-92d1-9b4602a9497c.PNG)
+
+2. The buyer decision is to __minimize the total purchase cost__ by considering the cummulative price breaks. 
+
+![obj 2](https://user-images.githubusercontent.com/49055090/85826300-eb6de480-b7b6-11ea-89ff-3bda9ca16c1b.PNG)
+
+3. To improve product quality and satisfaction of customer, the buyer expects to __minimize the number of defective items__.
+
+![obj 3](https://user-images.githubusercontent.com/49055090/85826443-2e2fbc80-b7b7-11ea-8fb6-75f0fb5fcc1e.PNG)
+
+4. Due to production schedule, the buyer wants to __maximize the number of items delivered on time__. 
+
+![obj 4](https://user-images.githubusercontent.com/49055090/85826591-6636ff80-b7b7-11ea-9b13-3cb823dbce70.PNG)
+
+Since this problem is a multi-objective problem, we need to set Gurobi to be able to consider all of this objective. Therefore, this tutorial use a function by Gurobi to linearize the problem. 
+```
+model.setObjectiveN(expression, index, priority(opt))
+```
+The expression above shows the linearization of the objective function. This tutorial assumes that all of the objective function has the same priority.  
 
 ### Constraints
-
-The code for this case is:
-```
-import gurobi gurobi.py
-```
-The code is provided here. Note that to run the code you need to install [Python](https://www.python.org/downloads/), [Jupyter Notebook](https://jupyter.readthedocs.io/en/latest/install.html), and [Gurobi](https://www.gurobi.com/gurobi-and-anaconda-for-windows/). 
+The constraints for this problem is divided into four major parts.
+* Capacity constraint
+* Discount constraint
+* Quality constraint
+* Delivery constraint
 
 ## Conclusion
 
 ## Important Papers
-Lee, C. Y., & Chien, C. F. (2014). Stochastic programming for vendor portfolio selection and order allocation under delivery uncertainty. OR spectrum, 36(3), 761-797.
+Lee, C. Y., & Chien, C. F. (2014). [Stochastic programming for vendor portfolio selection and order allocation under delivery uncertainty](https://link.springer.com/content/pdf/10.1007/s00291-013-0342-7.pdf). OR spectrum, 36(3), 761-797.
 
-Xia, W., & Wu, Z. (2007). Supplier selection with multiple criteria in volume discount environments. Omega, 35(5), 494-504.
+Xia, W., & Wu, Z. (2007). [Supplier selection with multiple criteria in volume discount environments](https://www.sciencedirect.com/science/article/pii/S0305048305001180?casa_token=Bj0ESyxOK8sAAAAA:ylopTXOi-RuQ-9JIqxQUO0Ln6bx_dR1r052sEuiZ5Bd8sST2tmDilfCgNedoTHZyGjiWaBzS13Y4). Omega, 35(5), 494-504.
 
 ## References
 Nick Morris, [Supplier Selection](https://github.com/N-ickMorris/Supplier-Selection)
