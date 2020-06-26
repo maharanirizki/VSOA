@@ -5,7 +5,7 @@ In supply chain management (SCM) creating a strategic partnership with suppliers
 
 ![Position of VSOA](https://user-images.githubusercontent.com/49055090/85646247-4b3c9080-b6ce-11ea-83e9-192e6fef70e5.PNG)
 
-Figure 1. Position of VSOA in Supply Chain (Lee et al., 2013)
+Position of VSOA in Supply Chain (Lee et al., 2013)
 
 ### Problem Characteristics
 VSOA problem has several characteristics as follows:
@@ -29,7 +29,7 @@ VSOA problem has several characteristics as follows:
   * [References](#references)
 
 ## Methodology
-This tutorial use integer programming to solve the problem using Gurobi
+This tutorial use linear programming to find the optimal solution by using Gurobi and Python language. 
 
 ## Problem Setting
 The example used in this tutorial will be based on the model provided by Xia and Wu (2007) and the data is based on the report by Nick Morris to determine which vendor to be selected given several criteria. The problem setting for this tutorial is given four supplier that sold 1 item. The buyer has several criteria in order to select which supplier is chosen. The criteria are:
@@ -202,7 +202,9 @@ The variable result is as follows.
 (1, 3): 363.6364
 (1, 4): 412.1212
 ```
-From the result, we may see that the buyer will use a mix of three suppliers in order to satisfy the demand. The buyer will order 24.2424 to supplier B, 363.6364 to supplier C, and 412.1212 to supplier C. 
+From the result, we know that the buyer will use a mix of three suppliers in order to satisfy the demand. The buyer will order 24.2424 to supplier B, 363.6364 to supplier C, and 412.1212 to supplier C. 
+
+![Result comparison](https://user-images.githubusercontent.com/49055090/85836870-dfd7e900-b7c9-11ea-9453-69c906730047.PNG)
 
 We may see that the result is proportional to the overall weight of the supplier. Therefore, we may conclude that the it is important to know the priority of criteria and quantifying the performance of the supplier. There is a several method to determine the weight for each supplier. I recommend you to check [this page](https://github.com/LinBaiTao/Supplier_Selection_Methods) for further resource. Note that this tutorial is only for single item. For further practice, you may want to consider multiple item and add the extension to further research. 
 
