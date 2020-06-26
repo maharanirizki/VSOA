@@ -179,12 +179,32 @@ Similar like quality, the buyer also has a requirement for delivery which constr
 ![delivery constraint](https://user-images.githubusercontent.com/49055090/85831229-9040ef80-b7c0-11ea-88cd-96a45f98ce18.PNG)
 
 ## Conclusion
-The result that I got from the model is as follows.
+The model is solved within 0.52 and Gurobi found an optimal solution. This is the objective value of the model.
+```
+Objective Function
+Objective 1 (maximize the total weighted quantity of purchasing)
+Z1 = 221.1321
 
-From the result, we may see that the 
+Objective 2 (minimize the total purchase cost)
+Z2 = 433764.8485
 
+Objective 3 (minimize the number of defective items)
+Z3 = 16.0000
 
-For further practice, you may want to add multiple item 
+Objective 4 (maximize the number of items delivered on time)
+Z4 = 720.0000
+
+```
+The variable result is as follows.
+```
+(1, 1): 0.0000
+(1, 2): 24.2424
+(1, 3): 363.6364
+(1, 4): 412.1212
+```
+From the result, we may see that the buyer will use a mix of three suppliers in order to satisfy the demand. The buyer will order 24.2424 to supplier B, 363.6364 to supplier C, and 412.1212 to supplier C. 
+
+We may see that the result is proportional to the overall weight of the supplier. Therefore, we may conclude that the it is important to know the priority of criteria and quantifying the performance of the supplier. There is a several method to determine the weight for each supplier. I recommend you to check [this page](https://github.com/LinBaiTao/Supplier_Selection_Methods) for further resource. Note that this tutorial is only for single item. For further practice, you may want to consider multiple item and add the extension to further research. 
 
 ## Important Papers
 Lee, C. Y., & Chien, C. F. (2014). [Stochastic programming for vendor portfolio selection and order allocation under delivery uncertainty](https://link.springer.com/content/pdf/10.1007/s00291-013-0342-7.pdf). OR spectrum, 36(3), 761-797.
