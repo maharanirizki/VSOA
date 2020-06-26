@@ -44,11 +44,26 @@ The example used in this tutorial will be based on the model provided by Xia and
 
 The buyer has a different priority for each criteria. The priority is represented by weight.
 
-![Global weight](https://user-images.githubusercontent.com/49055090/85816417-db95d680-b79d-11ea-8a51-80cc16633aac.PNG)
+| Criteria | Weight | 
+|:---:| ---: |
+| Price | 0.2961 |
+| Technical level | 0.1867 | 
+| Defects | 0.1658 |
+| Reliability | 0.0553 |
+| On-time delivery | 0.0804 |
+| Supply capacity | 0.0676 | 
+| Repair turnaround | 0.0466 |
+| Warranty period | 0.1015 |
 
 Each supplier has a different performance in every criteria. To determine the overall weight for each supplier, a method called Analytic Hierarchy Process (AHP) is conducted. However, this is beyond the scope of this tutorial and the overall weight is already given. For further information about AHP you can read it through [Wikipedia page](https://en.wikipedia.org/wiki/Analytic_hierarchy_process). The overall weight for each supplier is presented as follows.
 
-![Supplier final weight](https://user-images.githubusercontent.com/49055090/85817451-98893280-b7a0-11ea-98f3-d7076ee76412.PNG)
+| Supplier | Price | Technical level | Defects | Reliability | On-time delivery | Supply capacity | Repair turnaround | Warranty period | Supplier weights |
+|:---:| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| A | 0.3380 | 0.2000 | 0.0732 | 0.2121 | 0.2392 | 0.2564 | 0.2353 | 0.1818 | 0.2273 |
+| B | 0.2503 | 0.2000 | 0.1463 | 0.2242 | 0.2392 | 0.1805 | 0.2353 | 0.3636 | 0.2274 |
+| C | 0.2209 | 0.3000 | 0.1951 | 0.2727 | 0.2738 | 0.2018 | 0.1765 | 0.2727 | 0.2404 |
+| D | 0.1908 | 0.3000 | 0.5854 | 0.2909 | 0.2478 | 0.3613 | 0.3529 | 0.1818 | 0.3049 |
+| Global Weight | 0.2961 | 0.1867 | 0.1658 | 0.0553 | 0.0804 | 0.0676 | 0.0466 | 0.1015 | |
 
 The model consists of four parts:
 * Sets and notation
@@ -116,7 +131,7 @@ This problem has four objective.
 
 1. Since in this problem the performance of supplier is represented by weight, therefore the objective is to __maximize the total weighted quantity of purchasing__.
 
-![obj 1](https://user-images.githubusercontent.com/49055090/85825895-fb38f900-b7b5-11ea-92d1-9b4602a9497c.PNG)
+![obj 1](https://user-images.githubusercontent.com/49055090/85828624-6933ef00-b7bb-11ea-8fd7-4a1bfc491324.PNG)
 
 2. The buyer decision is to __minimize the total purchase cost__ by considering the cummulative price breaks. 
 
@@ -138,12 +153,38 @@ The expression above shows the linearization of the objective function. This tut
 
 ### Constraints
 The constraints for this problem is divided into four major parts.
-* Capacity constraint
-* Discount constraint
-* Quality constraint
-* Delivery constraint
+#### Capacity constraint
+Each supplier has a different number of product that they can provide. This condition is bounded by the capacity constraint.
+
+![capacity constraint](https://user-images.githubusercontent.com/49055090/85828686-8f598f00-b7bb-11ea-97b1-b9fd134aa7f8.PNG)
+
+#### Discount constraint
+This constraint represents the discount prices for the goods. 
+
+![discount constraint](https://user-images.githubusercontent.com/49055090/85829479-473b6c00-b7bd-11ea-9241-e4b66336f9a5.PNG)
+
+#### Demand constraint
+The buyer has a demand that need to be satisfied. The sum of assigned order quantities has to satisfy the demand. This condition is constrained by a demand constraint.
+
+![demand constraint](https://user-images.githubusercontent.com/49055090/85829799-fbd58d80-b7bd-11ea-85bb-760587e5d734.PNG)
+
+#### Quality constraint
+The buyer's has a quality requirement to be satisfied. To satisfy the quality constraint, an equation is formulated below.
+
+![quality constraints](https://user-images.githubusercontent.com/49055090/85831155-6daed680-b7c0-11ea-8e2c-416f4d35bf93.PNG)
+
+#### Delivery constraint
+Similar like quality, the buyer also has a requirement for delivery which constrained by this constraint.
+
+![delivery constraint](https://user-images.githubusercontent.com/49055090/85831229-9040ef80-b7c0-11ea-88cd-96a45f98ce18.PNG)
 
 ## Conclusion
+The result that I got from the model is as follows.
+
+From the result, we may see that the 
+
+
+For further practice, you may want to add multiple item 
 
 ## Important Papers
 Lee, C. Y., & Chien, C. F. (2014). [Stochastic programming for vendor portfolio selection and order allocation under delivery uncertainty](https://link.springer.com/content/pdf/10.1007/s00291-013-0342-7.pdf). OR spectrum, 36(3), 761-797.
